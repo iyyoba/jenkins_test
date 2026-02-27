@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Publish Test Results') {
             steps {
-                junit '*/target/surefire-reports/*.xml'
+                junit 'jenkins-test/target/surefire-reports/TEST-TempConverterTest.xml'
             }
         }
         stage('Publish Coverage Report') {
