@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/iyyoba/jenkins_test.git'
+                 git branch: 'main',
+                            url: 'https://github.com/iyyoba/jenkins_test.git'
             }
         }
         stage('Build') {
@@ -23,7 +24,7 @@ pipeline {
         }
         stage('Publish Test Results') {
             steps {
-                junit 'jenkins-test/target/surefire-reports/TEST-TempConverterTest.xml'
+                junit '*/target/surefire-reports/*.xml'
             }
         }
         stage('Publish Coverage Report') {
